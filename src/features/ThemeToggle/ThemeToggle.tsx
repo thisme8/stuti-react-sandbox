@@ -1,7 +1,16 @@
-import React from "react"
+import styles from './style.module.css';
 
-const ThemeToggle = () => {
-  return <div>ThemeToggle</div>
+interface ThemeToggleProps {
+  isDarkMode: boolean;
+  toggleDarkMode: () => void;
 }
 
-export default ThemeToggle
+const ThemeToggle = ({ isDarkMode, toggleDarkMode }: ThemeToggleProps) => {
+  return (
+    <button className={styles.switch} onClick={toggleDarkMode}>
+      {isDarkMode ? 'Switch to Light Mode' : 'Switch to Dark Mode'}
+    </button>
+  );
+};
+
+export default ThemeToggle;

@@ -1,13 +1,16 @@
-import React from "react";
-import {Route, BrowserRouter as Router, Routes} from "react-router-dom";
-import HomePage from "./pages/HomePage";
+import ItemCount from "./features/ItemCount/itemCount";
+import UserInfo from "./features/UserInfo/UserInfo";
+import ThemeToggle from "./features/ThemeToggle/ThemeToggle";
+import useDarkMode from "./hooks/useDarkMode";
 
 export default function App() {
- return(
-  <Router>
-    <Routes>
-      <Route path='/' element={<HomePage />}/>
-    </Routes>
-  </Router>
- )
+  const { isDarkMode, toggleDarkMode } = useDarkMode();
+
+  return (
+    <>
+      <ItemCount />
+      <UserInfo />
+      <ThemeToggle isDarkMode={isDarkMode} toggleDarkMode={toggleDarkMode} />
+    </>
+  );
 }
